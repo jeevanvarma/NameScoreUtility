@@ -27,6 +27,15 @@ class NameScoreServiceImplTest {
         }
     }
     @Test
+    public void test_with_some_space_between_values(){
+        NameScoreService nameScoreService=getNameService("\"MARY\" , \"PATRICIA\", \"LINDA\" ,\"BARBARA\" , \"VINCENZO\",\"SHON\",\"LYNWOOD\",\"JERE\",\"HAI\"");
+        try {
+            Assertions.assertEquals(3194,nameScoreService.calculateTotalScore());
+        }catch(NameScoreException e){
+            Assertions.fail("test_with_some_space_between_values failed",e);
+        }
+    }
+    @Test
     public void test_with_no_value(){
         NameScoreService nameScoreService=getNameService("");
         try {

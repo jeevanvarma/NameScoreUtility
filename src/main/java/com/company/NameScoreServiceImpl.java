@@ -37,7 +37,7 @@ public class NameScoreServiceImpl implements NameScoreService {
     public List<Name> prepareNameList() throws NameScoreException {
         return Arrays.stream(getFirstLineContents().split(","))
                 .parallel()
-                .map(NameImpl::new)
+                .map(x -> new NameImpl(x.trim()))
                 .collect(Collectors.toList());
     }
 
